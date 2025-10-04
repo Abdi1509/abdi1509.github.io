@@ -1,73 +1,42 @@
 <!doctype html>
 <html lang="no">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Abdi | Portefølje</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abdi | Portefølje & Spill</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <nav class="navbar">
-      <h1 class="logo">Abdi<span>.</span></h1>
-      <ul class="nav-links">
-        <li><a href="#about">Om meg</a></li>
-        <li><a href="#projects">Prosjekter</a></li>
-        <li><a href="#contact">Kontakt</a></li>
-      </ul>
-    </nav>
-  </header>
+  <nav class="navbar">
+    <h1 class="logo">Abdi<span>.</span></h1>
+    <button id="lang-toggle" class="btn small">🇳🇴 / 🇬🇧</button>
+  </nav>
 
-  <section id="hero">
-    <div class="hero-content">
-      <h2>Hei, jeg er <span class="highlight">Abdi</span></h2>
-      <h3>Frontend-utvikler & designer</h3>
-      <p>Jeg bygger moderne, raske og vakre nettsider — med fokus på brukervennlighet og detaljer.</p>
-      <div class="hero-buttons">
-        <a href="#projects" class="btn primary">Se prosjekter</a>
-        <a href="cv.pdf" class="btn secondary" target="_blank">Last ned CV</a>
-      </div>
-    </div>
-  </section>
+  <main class="main-grid">
+    <!-- VENSTRE: Intro -->
+    <section class="intro">
+      <h2 data-no="Hei, jeg er Abdi" data-en="Hi, I'm Abdi">Hei, jeg er Abdi</h2>
+      <p data-no="Jeg er en webutvikler med lidenskap for å bygge dynamiske nettsider og små spill på fritiden."
+         data-en="I'm a web developer passionate about building dynamic websites and small games for fun.">
+         Jeg er en webutvikler med lidenskap for å bygge dynamiske nettsider og små spill på fritiden.
+      </p>
+      <a href="#snake-section" class="btn primary" data-no="Start spillet →" data-en="Play the game →">Start spillet →</a>
+    </section>
 
-  <section id="about">
-    <h2>👋 Om meg</h2>
-    <p>
-      Jeg er en lidenskapelig webutvikler med erfaring innen HTML, CSS, JavaScript og React.
-      Jeg elsker å gjøre ideer om til levende nettsider med god design og funksjonalitet.
-    </p>
-  </section>
-
-  <section id="projects">
-    <h2>🚀 Prosjekter</h2>
-    <div class="project-grid">
-      <div class="project-card">
-        <h3>Portfolio-prosjekt</h3>
-        <p>Et moderne porteføljenettsted med responsivt design og animasjoner.</p>
-        <a href="#" class="btn small">Se mer</a>
-      </div>
-      <div class="project-card">
-        <h3>Bloggdesign</h3>
-        <p>En elegant blogg bygget med ren HTML og CSS.</p>
-        <a href="#" class="btn small">Se mer</a>
-      </div>
-      <div class="project-card">
-        <h3>JavaScript-app</h3>
-        <p>Interaktiv todo-app som lagrer data lokalt i nettleseren.</p>
-        <a href="#" class="btn small">Se mer</a>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact">
-    <h2>📩 Kontakt meg</h2>
-    <p>Send meg gjerne en melding på <a href="mailto:abdi@example.com">abdi@example.com</a> eller via sosiale medier.</p>
-  </section>
+    <!-- HØYRE: Snake spill -->
+    <section id="snake-section" class="snake-section">
+      <h2 data-no="🎮 Snake-spill" data-en="🎮 Snake Game">🎮 Snake-spill</h2>
+      <canvas id="gameCanvas" width="300" height="300"></canvas>
+      <button id="startBtn" class="btn secondary" data-no="Start" data-en="Start">Start</button>
+      <p id="scoreDisplay">Score: 0</p>
+    </section>
+  </main>
 
   <footer>
-    <p>© 2025 Abdi. Bygget med ❤️ og kaffe ☕</p>
+    <p>© 2025 Abdi</p>
   </footer>
 
   <script src="script.js"></script>
+  <script src="snake.js"></script>
 </body>
 </html>
