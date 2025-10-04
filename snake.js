@@ -1,3 +1,4 @@
+// === Snake-spill ===
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 const startBtn = document.getElementById("startBtn");
@@ -6,8 +7,8 @@ const scoreDisplay = document.getElementById("scoreDisplay");
 let snake, direction, food, gameInterval, score, playing = false;
 
 // Farger
-const snakeBodyColor = "#facc15"; // slange kroppen - gul/sandaktig
-const snakeHeadColor = "#fff8dc"; // slangehodet - hvit-sandfarge
+const snakeBodyColor = "#facc15"; // kroppen
+const snakeHeadColor = "#fff8dc"; // hodet
 
 function resetGame() {
   snake = [{ x: 150, y: 150 }];
@@ -27,7 +28,7 @@ function randomFood() {
 }
 
 function draw() {
-  ctx.fillStyle = "#fff8dc"; // lys sandfarge
+  ctx.fillStyle = "#fff8dc"; // sandfarge bakgrunn
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
   // Mat
@@ -41,16 +42,12 @@ function draw() {
   });
 }
 
-
 function update() {
   const head = { x: snake[0].x + direction.x, y: snake[0].y + direction.y };
 
-  // Kollisjon med vegger eller seg selv
-  if (
-    head.x < 0 || head.x >= canvas.width ||
-    head.y < 0 || head.y >= canvas.height ||
-    snake.some(s => s.x === head.x && s.y === head.y)
-  ) {
+  // Kollisjon
+  if (head.x < 0 || head.x >= canvas.width || head.y < 0 || head.y >= canvas.height ||
+      snake.some(s => s.x === head.x && s.y === head.y)) {
     stopGame();
     return;
   }
@@ -93,16 +90,10 @@ function stopGame() {
 }
 
 function preventScroll(e) {
-  if (["ArrowUp","ArrowDown","ArrowLeft","ArrowRight"," "].includes(e.key)) {
-    e.preventDefault();
-  }
+  if (["ArrowUp","ArrowDown","ArrowLeft","ArrowRight"," "].includes(e.key)) e.preventDefault();
 }
 
-startBtn.addEventListener("click", () => {
-  if (playing) stopGame();
-  else startGame();
-});
-
+// Arrow-taster
 window.addEventListener("keydown", (e) => {
   if (!playing) return;
   switch (e.key) {
@@ -112,3 +103,22 @@ window.addEventListener("keydown", (e) => {
     case "ArrowRight": if (direction.x === 0) direction = { x: 10, y: 0 }; break;
   }
 });
+
+// Start-knapp
+startBtn.addEventListener("click", () => {
+  if (playing) stopGame();
+  else startGame();
+});
+
+// === Språk-bytte ===
+const toggleBtn = document.getElementById("lang-toggle");
+if (toggleBtn) {
+  let currentLang = "no";
+  toggleBtn.addEventListener("click", () => {
+    currentLang = currentLang === "no" ? "en" : "no";
+    document.querySelectorAll("[data-no]").forEach(el => {
+      el.textContent = el.getAttribute(`data-${currentLang}`);
+    });
+    document.documentElement.lang = currentLang;
+  });
+}
