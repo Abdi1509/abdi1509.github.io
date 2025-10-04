@@ -10,8 +10,9 @@ function resetGame() {
   direction = { x: 10, y: 0 };
   food = randomFood();
   score = 0;
-  scoreDisplay.textContent = "Score: 0";
+  updateScore();
   clearInterval(gameInterval);
+  draw();
 }
 
 function randomFood() {
@@ -35,7 +36,6 @@ function draw() {
 function update() {
   const head = { x: snake[0].x + direction.x, y: snake[0].y + direction.y };
 
-  // kollisjon
   if (head.x < 0 || head.x >= canvas.width || head.y < 0 || head.y >= canvas.height ||
       snake.some((s) => s.x === head.x && s.y === head.y)) {
     stopGame();
@@ -46,7 +46,7 @@ function update() {
 
   if (head.x === food.x && head.y === food.y) {
     score++;
-    scoreDisplay.textContent = `Score: ${score}`;
+    updateScore();
     food = randomFood();
   } else {
     snake.pop();
@@ -55,26 +55,26 @@ function update() {
   draw();
 }
 
+function updateScore() {
+  scoreDisplay.textContent = `Score: ${score}`;
+}
+
 function gameLoop() {
   update();
 }
 
 function startGame() {
   playing = true;
-  startBtn.textContent = startBtn.getAttribute("data-no") === "Start spillet" ? "Slutt spillet" : "End Game";
+  startBtn.textContent = startBtn.getAttribute(`data-${currentLang}` === "no" ? "Slutt spillet" : "End Game");
   resetGame();
   gameInterval = setInterval(gameLoop, 100);
-
-  // blokker scrolling
   window.addEventListener("keydown", preventScroll, { passive: false });
 }
 
 function stopGame() {
   playing = false;
   clearInterval(gameInterval);
-  startBtn.textContent = startBtn.getAttribute("data-no") === "Start spillet" ? "Start spillet" : "Start Game";
-
-  // fjern blokkering
+  startBtn.textContent = startBtn.getAttribute(`data-${currentLang}`);
   window.removeEventListener("keydown", preventScroll);
 }
 
@@ -85,13 +85,10 @@ function preventScroll(e) {
 }
 
 startBtn.addEventListener("click", () => {
-  if (playing) {
-    stopGame();
-  } else {
-    startGame();
-  }
+  if (playing) stopGame();
+  else startGame();
 });
-
+  
 window.addEventListener("keydown", (e) => {
   if (!playing) return;
   switch (e.key) {

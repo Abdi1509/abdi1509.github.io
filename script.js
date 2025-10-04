@@ -1,4 +1,3 @@
-// Språk-bytte
 const toggleBtn = document.getElementById("lang-toggle");
 let currentLang = "no";
 

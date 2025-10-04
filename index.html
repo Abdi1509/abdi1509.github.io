@@ -18,27 +18,28 @@
     </nav>
   </header>
 
+  <!-- Hero-seksjon -->
   <section id="hero">
-  <div class="hero-content">
-    <div class="hero-text">
-      <h2>Hei, jeg er <span class="highlight">Abdi</span></h2>
-      <h3>Frontend-utvikler & designer</h3>
-      <p>Jeg bygger moderne, raske og vakre nettsider — med fokus på brukervennlighet og detaljer.</p>
-      <div class="hero-buttons">
-        <a href="#projects" class="btn primary">Se prosjekter</a>
-        <a href="cv.pdf" class="btn secondary" target="_blank">Last ned CV</a>
+    <div class="hero-content">
+      <div class="hero-text">
+        <h2>Hei, jeg er <span class="highlight">Abdi</span></h2>
+        <h3>Frontend-utvikler & designer</h3>
+        <p>Jeg bygger moderne, raske og vakre nettsider — med fokus på brukervennlighet og detaljer.</p>
+        <div class="hero-buttons">
+          <a href="#projects" class="btn primary">Se prosjekter</a>
+          <a href="cv.pdf" class="btn secondary" target="_blank">Last ned CV</a>
+        </div>
+      </div>
+
+      <div class="hero-game">
+        <canvas id="gameCanvas" width="300" height="300"></canvas>
+        <button id="startBtn" class="btn primary">Start spillet</button>
+        <p id="scoreDisplay">Score: 0</p>
       </div>
     </div>
+  </section>
 
-    <div class="hero-game">
-      <canvas id="gameCanvas" width="300" height="300"></canvas>
-      <button id="startBtn" class="btn primary">Start spillet</button>
-      <p id="scoreDisplay">Score: 0</p>
-    </div>
-  </div>
-</section>
-
-
+  <!-- Om meg -->
   <section id="about">
     <h2>👋 Om meg</h2>
     <p>
@@ -47,6 +48,7 @@
     </p>
   </section>
 
+  <!-- Prosjekter -->
   <section id="projects">
     <h2>🚀 Prosjekter</h2>
     <div class="project-grid">
@@ -68,6 +70,7 @@
     </div>
   </section>
 
+  <!-- Kontakt -->
   <section id="contact">
     <h2>📩 Kontakt meg</h2>
     <p>Send meg gjerne en melding på <a href="mailto:abdi@example.com">abdi@example.com</a> eller via sosiale medier.</p>
@@ -77,6 +80,6 @@
     <p>© 2025 Abdi. Bygget med ❤️ og kaffe ☕</p>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
