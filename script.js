@@ -11,3 +11,26 @@ toggleBtn.addEventListener("click", () => {
 
   document.documentElement.lang = currentLang;
 });
+
+
+// === Prosjektfilter ===
+const filterBtns = document.querySelectorAll(".filter-btn");
+const projectCards = document.querySelectorAll(".project-card");
+
+filterBtns.forEach(btn => {
+  btn.addEventListener("click", () => {
+    // Fjern active fra alle knapper
+    filterBtns.forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+
+    const lang = btn.dataset.lang;
+
+    projectCards.forEach(card => {
+      if(lang === "all" || card.dataset.lang.includes(lang)) {
+        card.style.display = "block";
+      } else {
+        card.style.display = "none";
+      }
+    });
+  });
+});

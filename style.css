@@ -251,3 +251,27 @@ footer {
   animation: fall linear forwards;
 }
 
+.language-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.filter-btn {
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  border: 2px solid #d97706;
+  background-color: #fff8dc;
+  color: #d97706;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+  background-color: #d97706;
+  color: #fff;
+}
