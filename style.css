@@ -1,4 +1,11 @@
 /* === Generelt === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Poppins", sans-serif;
   background-color: #fdf5e6; /* Lys sandaktig bakgrunn */
@@ -6,51 +13,109 @@ body {
   line-height: 1.6;
 }
 
-/* Hero */
+/* === Navigasjon === */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 10%;
+  background: rgba(253, 245, 230, 0.95); /* Lys transparent sand */
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #d97706; /* varm kontrastfarge */
+}
+
+.logo span {
+  color: #b45309;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: #1e293b;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #d97706;
+}
+
+/* === Hero === */
 #hero {
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0 10%;
-  background: #fdf5e6; /* Samme sandaktig bakgrunn */
+  background: #fdf5e6; /* Sandbakgrunn */
 }
 
-/* Navbar */
-.navbar {
+.hero-content {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 1.5rem 10%;
-  background: rgba(253, 245, 230, 0.9); /* Lys transparent sand */
-  position: sticky;
-  top: 0;
-  backdrop-filter: blur(8px);
+  justify-content: space-between;
+  gap: 4rem;
+  flex-wrap: wrap;
+  width: 100%;
 }
 
-.nav-links a {
-  color: #1e293b; /* mørk tekst */
+.hero-text {
+  flex: 1;
+  min-width: 300px;
+  text-align: left;
 }
 
-.nav-links a:hover {
-  color: #d97706; /* litt varm kontrast på hover */
-}
-
-/* Prosjekter og seksjoner */
-section {
-  padding: 4rem 10%;
-  text-align: center;
-  background: #fdf5e6; /* sandaktig */
-}
-
-.project-card {
-  background: #fff8dc; /* lys sandkort for kortene */
+.hero-text h2 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
   color: #1e293b;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.hero-text .highlight {
+  color: #d97706;
+}
+
+.hero-text h3 {
+  font-weight: 400;
+  color: #4b5563;
+  margin-bottom: 1rem;
+}
+
+.hero-text p {
+  max-width: 600px;
+  margin-bottom: 1.5rem;
+  color: #4b5563;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+  cursor: pointer;
 }
 
 .btn.primary {
-  background-color: #d97706; /* varm knappfarge */
+  background-color: #d97706;
   color: #fff;
 }
 
@@ -68,7 +133,72 @@ section {
   color: #fff;
 }
 
-/* Footer */
+/* === Snake Game === */
+.hero-game {
+  flex: 1;
+  min-width: 300px;
+  text-align: center;
+}
+
+#gameCanvas {
+  background-color: #fff8dc; /* lys sand for canvas */
+  border: 2px solid #d97706;
+  border-radius: 10px;
+  display: block;
+  margin: 0 auto 10px auto;
+}
+
+#startBtn {
+  margin-top: 10px;
+}
+
+#scoreDisplay {
+  margin-top: 5px;
+  font-weight: 600;
+  color: #d97706;
+}
+
+/* === Seksjoner === */
+section {
+  padding: 4rem 10%;
+  text-align: center;
+  background: #fdf5e6; /* Sandaktig */
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #1e293b;
+}
+
+/* === Prosjekter === */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.project-card {
+  background: #fff8dc; /* lys sandkort */
+  color: #1e293b;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+.btn.small {
+  display: inline-block;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+/* === Footer === */
 footer {
   background: #fdf5e6;
   color: #1e293b;
@@ -77,8 +207,25 @@ footer {
   font-size: 0.9rem;
 }
 
-/* Snake Game */
-#gameCanvas {
-  background-color: #fff8dc; /* lys sand for canvas */
-  border: 2px solid #d97706;
+/* === Responsivitet === */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  .hero-text {
+    text-align: center;
+  }
+
+  .hero-content {
+    flex-direction: column;
+  }
+
+  .hero-text h2 {
+    font-size: 2rem;
+  }
+
+  .hero-text p {
+    font-size: 0.95rem;
+  }
 }
