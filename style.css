@@ -1,226 +1,84 @@
 /* === Generelt === */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
-}
-
 body {
   font-family: "Poppins", sans-serif;
-  background-color: #0f172a;
-  color: #e2e8f0;
+  background-color: #fdf5e6; /* Lys sandaktig bakgrunn */
+  color: #1e293b; /* Mørk tekst for kontrast */
   line-height: 1.6;
 }
 
-/* === Navigasjon === */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.5rem 10%;
-  background: rgba(15, 23, 42, 0.8);
-  position: sticky;
-  top: 0;
-  backdrop-filter: blur(8px);
-}
-
-.logo {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: #38bdf8;
-}
-
-.logo span {
-  color: #f472b6;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 1.5rem;
-}
-
-.nav-links a {
-  color: #e2e8f0;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s;
-}
-
-.nav-links a:hover {
-  color: #38bdf8;
-}
-
-/* === Hero === */
+/* Hero */
 #hero {
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0 10%;
-  background: linear-gradient(135deg, #0f172a, #1e293b);
+  background: #fdf5e6; /* Samme sandaktig bakgrunn */
 }
 
-.hero-content {
+/* Navbar */
+.navbar {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  gap: 4rem;
-  flex-wrap: wrap;
-  width: 100%;
+  align-items: center;
+  padding: 1.5rem 10%;
+  background: rgba(253, 245, 230, 0.9); /* Lys transparent sand */
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(8px);
 }
 
-.hero-text {
-  flex: 1;
-  min-width: 300px;
-  text-align: left;
+.nav-links a {
+  color: #1e293b; /* mørk tekst */
 }
 
-.hero-text h2 {
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
+.nav-links a:hover {
+  color: #d97706; /* litt varm kontrast på hover */
 }
 
-.hero-text .highlight {
-  color: #38bdf8;
-}
-
-.hero-text h3 {
-  font-weight: 400;
-  color: #94a3b8;
-  margin-bottom: 1rem;
-}
-
-.hero-text p {
-  max-width: 600px;
-  margin-bottom: 1.5rem;
-  color: #cbd5e1;
-}
-
-.hero-buttons {
-  display: flex;
-  gap: 1rem;
-}
-
-.btn {
-  padding: 0.75rem 1.5rem;
-  border-radius: 9999px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: 0.3s;
-  cursor: pointer;
-}
-
-.btn.primary {
-  background-color: #38bdf8;
-  color: #0f172a;
-}
-
-.btn.primary:hover {
-  background-color: #0ea5e9;
-}
-
-.btn.secondary {
-  border: 2px solid #38bdf8;
-  color: #38bdf8;
-}
-
-.btn.secondary:hover {
-  background-color: #38bdf8;
-  color: #0f172a;
-}
-
-/* === Snake Game === */
-.hero-game {
-  flex: 1;
-  min-width: 300px;
-  text-align: center;
-}
-
-#gameCanvas {
-  background-color: #1e293b;
-  border: 2px solid #38bdf8;
-  border-radius: 10px;
-  display: block;
-  margin: 0 auto 10px auto;
-}
-
-#startBtn {
-  margin-top: 10px;
-}
-
-#scoreDisplay {
-  margin-top: 5px;
-  font-weight: 600;
-  color: #facc15;
-}
-
-/* === Seksjoner === */
+/* Prosjekter og seksjoner */
 section {
   padding: 4rem 10%;
   text-align: center;
-}
-
-h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
-/* === Prosjekter === */
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
+  background: #fdf5e6; /* sandaktig */
 }
 
 .project-card {
-  background: #1e293b;
-  padding: 1.5rem;
-  border-radius: 1rem;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
-  transition: transform 0.3s;
+  background: #fff8dc; /* lys sandkort for kortene */
+  color: #1e293b;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-.project-card:hover {
-  transform: translateY(-5px);
+.btn.primary {
+  background-color: #d97706; /* varm knappfarge */
+  color: #fff;
 }
 
-.btn.small {
-  display: inline-block;
-  margin-top: 1rem;
-  font-size: 0.9rem;
+.btn.primary:hover {
+  background-color: #b45309;
 }
 
-/* === Footer === */
+.btn.secondary {
+  border: 2px solid #d97706;
+  color: #d97706;
+}
+
+.btn.secondary:hover {
+  background-color: #d97706;
+  color: #fff;
+}
+
+/* Footer */
 footer {
-  background: #0f172a;
+  background: #fdf5e6;
+  color: #1e293b;
   padding: 1.5rem;
   text-align: center;
-  color: #94a3b8;
   font-size: 0.9rem;
 }
 
-/* === Responsivitet === */
-@media (max-width: 768px) {
-  .nav-links {
-    display: none;
-  }
-
-  .hero-text {
-    text-align: center;
-  }
-
-  .hero-content {
-    flex-direction: column;
-  }
-
-  .hero-text h2 {
-    font-size: 2rem;
-  }
-
-  .hero-text p {
-    font-size: 0.95rem;
-  }
+/* Snake Game */
+#gameCanvas {
+  background-color: #fff8dc; /* lys sand for canvas */
+  border: 2px solid #d97706;
 }

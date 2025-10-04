@@ -5,6 +5,10 @@ const scoreDisplay = document.getElementById("scoreDisplay");
 
 let snake, direction, food, gameInterval, score, playing = false;
 
+// Farger
+const snakeBodyColor = "#facc15"; // slange kroppen - gul/sandaktig
+const snakeHeadColor = "#fff8dc"; // slangehodet - hvit-sandfarge
+
 function resetGame() {
   snake = [{ x: 150, y: 150 }];
   direction = { x: 10, y: 0 };
@@ -26,18 +30,26 @@ function draw() {
   ctx.fillStyle = "#1e293b";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-  ctx.fillStyle = "#facc15";
+  // Mat
+  ctx.fillStyle = "#f472b6";
   ctx.fillRect(food.x, food.y, 10, 10);
 
-  ctx.fillStyle = "#38bdf8";
-  snake.forEach((s) => ctx.fillRect(s.x, s.y, 10, 10));
+  // Slange
+  snake.forEach((s, index) => {
+    ctx.fillStyle = index === 0 ? snakeHeadColor : snakeBodyColor;
+    ctx.fillRect(s.x, s.y, 10, 10);
+  });
 }
 
 function update() {
   const head = { x: snake[0].x + direction.x, y: snake[0].y + direction.y };
 
-  if (head.x < 0 || head.x >= canvas.width || head.y < 0 || head.y >= canvas.height ||
-      snake.some((s) => s.x === head.x && s.y === head.y)) {
+  // Kollisjon med vegger eller seg selv
+  if (
+    head.x < 0 || head.x >= canvas.width ||
+    head.y < 0 || head.y >= canvas.height ||
+    snake.some(s => s.x === head.x && s.y === head.y)
+  ) {
     stopGame();
     return;
   }
@@ -64,8 +76,9 @@ function gameLoop() {
 }
 
 function startGame() {
+  if (playing) return;
   playing = true;
-  startBtn.textContent = startBtn.getAttribute(`data-${currentLang}` === "no" ? "Slutt spillet" : "End Game");
+  startBtn.textContent = "Slutt spillet";
   resetGame();
   gameInterval = setInterval(gameLoop, 100);
   window.addEventListener("keydown", preventScroll, { passive: false });
@@ -74,7 +87,7 @@ function startGame() {
 function stopGame() {
   playing = false;
   clearInterval(gameInterval);
-  startBtn.textContent = startBtn.getAttribute(`data-${currentLang}`);
+  startBtn.textContent = "Start spillet";
   window.removeEventListener("keydown", preventScroll);
 }
 
@@ -88,7 +101,7 @@ startBtn.addEventListener("click", () => {
   if (playing) stopGame();
   else startGame();
 });
-  
+
 window.addEventListener("keydown", (e) => {
   if (!playing) return;
   switch (e.key) {
