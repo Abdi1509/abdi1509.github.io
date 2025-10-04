@@ -58,35 +58,48 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
   padding: 0 10%;
   background: linear-gradient(135deg, #0f172a, #1e293b);
 }
 
-.hero-content h2 {
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.hero-text {
+  flex: 1;
+  min-width: 250px;
+  text-align: left;
+}
+
+.hero-text h2 {
   font-size: 2.5rem;
   margin-bottom: 0.5rem;
 }
 
-.hero-content .highlight {
+.hero-text .highlight {
   color: #38bdf8;
 }
 
-.hero-content h3 {
+.hero-text h3 {
   font-weight: 400;
   color: #94a3b8;
   margin-bottom: 1rem;
 }
 
-.hero-content p {
+.hero-text p {
   max-width: 600px;
-  margin: 0 auto 1.5rem;
+  margin-bottom: 1.5rem;
   color: #cbd5e1;
 }
 
 .hero-buttons {
   display: flex;
-  justify-content: center;
   gap: 1rem;
 }
 
@@ -115,6 +128,31 @@ body {
 .btn.secondary:hover {
   background-color: #38bdf8;
   color: #0f172a;
+}
+
+/* === Snake Game === */
+.hero-game {
+  flex: 1;
+  min-width: 300px;
+  text-align: center;
+}
+
+#gameCanvas {
+  background-color: #1e293b;
+  border: 2px solid #38bdf8;
+  border-radius: 10px;
+  display: block;
+  margin: 0 auto 10px auto;
+}
+
+#startBtn {
+  margin-top: 10px;
+}
+
+#scoreDisplay {
+  margin-top: 5px;
+  font-weight: 600;
+  color: #facc15;
 }
 
 /* === Seksjoner === */
@@ -169,11 +207,19 @@ footer {
     display: none;
   }
 
-  .hero-content h2 {
+  .hero-text {
+    text-align: center;
+  }
+
+  .hero-text h2 {
     font-size: 2rem;
   }
 
-  .hero-content p {
+  .hero-text p {
     font-size: 0.95rem;
+  }
+
+  .hero-content {
+    flex-direction: column;
   }
 }
