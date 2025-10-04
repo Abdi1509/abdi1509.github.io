@@ -11,73 +11,97 @@
     <nav class="navbar">
       <h1 class="logo">Abdi<span>.</span></h1>
       <ul class="nav-links">
-        <li><a href="#about">Om meg</a></li>
-        <li><a href="#projects">Prosjekter</a></li>
-        <li><a href="#contact">Kontakt</a></li>
+        <li><a href="#about" data-no="Om meg" data-en="About Me">Om meg</a></li>
+        <li><a href="#projects" data-no="Prosjekter" data-en="Projects">Prosjekter</a></li>
+        <li><a href="#contact" data-no="Kontakt" data-en="Contact">Kontakt</a></li>
         <li><button id="lang-toggle" class="btn secondary">EN/NO</button></li>
       </ul>
     </nav>
   </header>
 
-  <!-- Hero-seksjon -->
   <section id="hero">
     <div class="hero-content">
       <div class="hero-text">
-        <h2>Hei, jeg er <span class="highlight">Abdi</span></h2>
-        <h3>Frontend-utvikler & designer</h3>
-        <p>Jeg bygger moderne, raske og vakre nettsider — med fokus på brukervennlighet og detaljer.</p>
+        <h2 id="hero-title">
+          <span class="hero-before" data-no="Hei, jeg er " data-en="Hi, I am ">Hei, jeg er </span>
+          <span class="highlight" data-no="Abdi" data-en="Abdi">Abdi</span>
+          <span class="hero-after" data-no="" data-en=""></span>
+        </h2>
+        <h3 id="hero-subtitle" data-no="Frontend-utvikler & miljøarbeider" data-en="Frontend Developer & Social Worker">
+          Frontend-utvikler & miljøarbeider
+        </h3>
+        <p id="hero-description" data-no="Jeg jobber som frontend-utvikler for Jobblo per dags dato og miljøarbeider på siden."
+           data-en="I currently work as a frontend developer for Jobblo and as a social worker on the side.">
+          Jeg jobber som frontend-utvikler for Jobblo per dags dato og miljøarbeider på siden.
+        </p>
         <div class="hero-buttons">
-          <a href="#projects" class="btn primary">Se prosjekter</a>
-          <a href="cv.pdf" class="btn secondary" target="_blank">Last ned CV</a>
+          <a href="#projects" class="btn primary" data-no="Se prosjekter" data-en="View Projects">Se prosjekter</a>
+          <a href="cv.pdf" class="btn secondary" target="_blank" data-no="Last ned CV" data-en="Download CV">Last ned CV</a>
         </div>
       </div>
 
       <div class="hero-game">
         <canvas id="gameCanvas" width="300" height="300"></canvas>
-        <button id="startBtn" class="btn primary">Start spillet</button>
-        <p id="scoreDisplay">Score: 0</p>
+        <button id="startBtn" class="btn primary" data-no="Start spillet" data-en="Start Game">Start spillet</button>
+        <p id="scoreDisplay" data-no="Score: 0" data-en="Score: 0">Score: 0</p>
       </div>
     </div>
   </section>
 
   <!-- Om meg -->
   <section id="about">
-    <h2>👋 Om meg</h2>
-    <p>Jeg er en lidenskapelig webutvikler med erfaring innen HTML, CSS, JavaScript og React. Jeg elsker å gjøre ideer om til levende nettsider med god design og funksjonalitet.</p>
+    <h2 data-no="👋 Om meg" data-en="👋 About Me">👋 Om meg</h2>
+    <p data-no="Jeg er en lidenskapelig webutvikler med erfaring innen HTML, CSS, JavaScript og React. Jeg elsker å gjøre ideer om til levende nettsider med god design og funksjonalitet."
+       data-en="I am a passionate web developer with experience in HTML, CSS, JavaScript, and React. I love bringing ideas to life as beautiful, functional websites.">
+       Jeg er en lidenskapelig webutvikler med erfaring innen HTML, CSS, JavaScript og React. Jeg elsker å gjøre ideer om til levende nettsider med god design og funksjonalitet.
+    </p>
   </section>
 
   <!-- Prosjekter -->
   <section id="projects">
-    <h2>🚀 Prosjekter</h2>
+    <h2 data-no="🚀 Prosjekter" data-en="🚀 Projects">🚀 Prosjekter</h2>
     <div class="project-grid">
       <div class="project-card">
-        <h3>Portfolio-prosjekt</h3>
-        <p>Et moderne porteføljenettsted med responsivt design og animasjoner.</p>
-        <a href="#" class="btn small">Se mer</a>
+        <h3 data-no="Portfolio-prosjekt" data-en="Portfolio Project">Portfolio-prosjekt</h3>
+        <p data-no="Et moderne porteføljenettsted med responsivt design og animasjoner."
+           data-en="A modern portfolio website with responsive design and animations.">
+           Et moderne porteføljenettsted med responsivt design og animasjoner.
+        </p>
+        <a href="#" class="btn small" data-no="Se mer" data-en="See More">Se mer</a>
       </div>
       <div class="project-card">
-        <h3>Bloggdesign</h3>
-        <p>En elegant blogg bygget med ren HTML og CSS.</p>
-        <a href="#" class="btn small">Se mer</a>
+        <h3 data-no="Bloggdesign" data-en="Blog Design">Bloggdesign</h3>
+        <p data-no="En elegant blogg bygget med ren HTML og CSS."
+           data-en="An elegant blog built with pure HTML and CSS.">
+           En elegant blogg bygget med ren HTML og CSS.
+        </p>
+        <a href="#" class="btn small" data-no="Se mer" data-en="See More">Se mer</a>
       </div>
       <div class="project-card">
-        <h3>JavaScript-app</h3>
-        <p>Interaktiv todo-app som lagrer data lokalt i nettleseren.</p>
-        <a href="#" class="btn small">Se mer</a>
+        <h3 data-no="JavaScript-app" data-en="JavaScript App">JavaScript-app</h3>
+        <p data-no="Interaktiv todo-app som lagrer data lokalt i nettleseren."
+           data-en="Interactive todo app that stores data locally in the browser.">
+           Interaktiv todo-app som lagrer data lokalt i nettleseren.
+        </p>
+        <a href="#" class="btn small" data-no="Se mer" data-en="See More">Se mer</a>
       </div>
     </div>
   </section>
 
   <!-- Kontakt -->
   <section id="contact">
-    <h2>📩 Kontakt meg</h2>
-    <p>Send meg gjerne en melding på <a href="mailto:abdi@example.com">abdi@example.com</a> eller via sosiale medier.</p>
+    <h2 data-no="📩 Kontakt meg" data-en="📩 Contact Me">📩 Kontakt meg</h2>
+    <p data-no="Send meg gjerne en melding på abdi@example.com eller via sosiale medier."
+       data-en="Feel free to send me a message at abdi@example.com or via social media.">
+       Send meg gjerne en melding på <a href="mailto:abdi@example.com">abdirahman.moha@outlook.com</a> eller via sosiale medier.
+    </p>
   </section>
 
   <footer>
-    <p>© 2025 Abdi. Bygget med ❤️ og kaffe ☕</p>
+    <p data-no="© 2025 Abdi. Bygget med ❤️ og kaffe ☕" data-en="© 2025 Abdi. Built with ❤️ and coffee ☕">© 2025 Abdi. Bygget med ❤️ og kaffe ☕</p>
   </footer>
 
+  <script src="snake.js" defer></script>
   <script src="script.js" defer></script>
 </body>
 </html>

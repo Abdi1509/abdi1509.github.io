@@ -229,3 +229,25 @@ footer {
     font-size: 0.95rem;
   }
 }
+
+/* Hover-effekt på prosjektkort */
+.project-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* Konfetti partikler */
+.confetti {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: #f472b6;
+  pointer-events: none;
+  opacity: 0.9;
+  border-radius: 50%;
+  animation: fall linear forwards;
+}
+
