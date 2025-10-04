@@ -12,23 +12,45 @@
     <button id="lang-toggle" class="btn small">🇳🇴 / 🇬🇧</button>
   </nav>
 
-  <main class="main-grid">
-    <!-- VENSTRE: Intro -->
-    <section class="intro">
-      <h2 data-no="Hei, jeg er Abdi" data-en="Hi, I'm Abdi">Hei, jeg er Abdi</h2>
-      <p data-no="Jeg er en webutvikler med lidenskap for å bygge dynamiske nettsider og små spill på fritiden."
-         data-en="I'm a web developer passionate about building dynamic websites and small games for fun.">
-         Jeg er en webutvikler med lidenskap for å bygge dynamiske nettsider og små spill på fritiden.
-      </p>
-      <a href="#snake-section" class="btn primary" data-no="Start spillet →" data-en="Play the game →">Start spillet →</a>
+  <main>
+    <!-- GRID: intro + spill -->
+    <section class="main-grid">
+      <!-- VENSTRE: Intro -->
+      <div class="intro">
+        <h2 data-no="Hei, jeg er Abdi" data-en="Hi, I'm Abdi">Hei, jeg er Abdi</h2>
+        <p data-no="Jeg er en webutvikler med lidenskap for å bygge dynamiske nettsider og små spill på fritiden."
+           data-en="I'm a web developer passionate about building dynamic websites and small games for fun.">
+           Jeg er en webutvikler med lidenskap for å bygge dynamiske nettsider og små spill på fritiden.
+        </p>
+        <a href="#projects" class="btn primary" data-no="Se prosjekter" data-en="See projects">Se prosjekter</a>
+      </div>
+
+      <!-- HØYRE: Snake Game -->
+      <div class="snake-section">
+        <h2 data-no="🎮 Snake-spill" data-en="🎮 Snake Game">🎮 Snake-spill</h2>
+        <canvas id="gameCanvas" width="300" height="300"></canvas>
+        <button id="startBtn" class="btn secondary" data-no="Start spillet" data-en="Start Game">Start spillet</button>
+        <p id="scoreDisplay">Score: 0</p>
+      </div>
     </section>
 
-    <!-- HØYRE: Snake spill -->
-    <section id="snake-section" class="snake-section">
-      <h2 data-no="🎮 Snake-spill" data-en="🎮 Snake Game">🎮 Snake-spill</h2>
-      <canvas id="gameCanvas" width="300" height="300"></canvas>
-      <button id="startBtn" class="btn secondary" data-no="Start" data-en="Start">Start</button>
-      <p id="scoreDisplay">Score: 0</p>
+    <!-- PORTFOLIO-KORT -->
+    <section id="projects" class="projects">
+      <h2 data-no="🚀 Prosjekter" data-en="🚀 Projects">🚀 Prosjekter</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Portefølje</h3>
+          <p>En dynamisk portefølje bygget med HTML, CSS og JavaScript.</p>
+        </div>
+        <div class="card">
+          <h3>Snake Game</h3>
+          <p>Et minispill som kan spilles direkte på nettsiden.</p>
+        </div>
+        <div class="card">
+          <h3>Kommende prosjekt</h3>
+          <p>Flere kule ting er på vei 🚧</p>
+        </div>
+      </div>
     </section>
   </main>
 
