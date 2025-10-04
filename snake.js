@@ -27,7 +27,7 @@ function randomFood() {
 }
 
 function draw() {
-  ctx.fillStyle = "#1e293b";
+  ctx.fillStyle = "#fff8dc"; // lys sandfarge
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
   // Mat
@@ -40,6 +40,7 @@ function draw() {
     ctx.fillRect(s.x, s.y, 10, 10);
   });
 }
+
 
 function update() {
   const head = { x: snake[0].x + direction.x, y: snake[0].y + direction.y };
