@@ -164,7 +164,7 @@ header h1 span {
   box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
-/* === Responsivitet === */
+
 @media (max-width: 768px) {
   .project-details {
     padding: 2rem 5%;
